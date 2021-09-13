@@ -8816,7 +8816,7 @@ textarea.form-control {
     margin-bottom: 10px; }
     .ftco-footer .ftco-footer-widget ul li a {
       color: rgba(0, 0, 0, 0.6);
-      color: #207dff; }
+      color: var(--primary) }
       .ftco-footer .ftco-footer-widget ul li a span {
         color: rgba(255, 255, 255, 0.6);
         color: #207dff; }
