@@ -8405,8 +8405,8 @@ h1, h2, h3, h4, h5,
         background: #207dff !important;
         color: #fff !important; }
   .btn.btn-secondary {
-    background: #fe5f55 !important;
-    border: 1px solid #fe5f55 !important;
+    background: #fe5f55 ;
+    border: 1px solid #fe5f55;
     color: #fff !important; }
     .btn.btn-secondary:hover {
       border: 1px solid #fe5f55 !important;
