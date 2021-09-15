@@ -1,3 +1,4 @@
+const url = "https://script.google.com/macros/s/AKfycbxsbPM7h58-7A0SnEJfaH1T9RWNQZbKgt4EMFZRB8yyHSFNDUosbR7w6lEkut6Yku9bpg/exec"
 const cities = ["ESENYURT", "KÜÇÜKÇEKMECE", "BAĞCILAR", "PENDİK", "ÜMRANİYE", "BAHÇELİEVLER", "SULTANGAZİ", "ÜSKÜDAR", "MALTEPE", "GAZİOSMANPAŞA", "KADIKÖY", "KARTAL", "BAŞAKŞEHİR", "SANCAKTEPE", "ESENLER", "KAĞITHANE", "AVCILAR", "ATAŞEHİR", "EYÜPSULTAN", "FATİH", "BEYLİKDÜZÜ", "SULTANBEYLİ", "SARIYER", "ARNAVUTKÖY", "ZEYTİNBURNU", "GÜNGÖREN", "ÇEKMEKÖY", "TUZLA", "BAYRAMPAŞA", "ŞİŞLİ", "BÜYÜKÇEKMECE", "BEYKOZ", "BEYOĞLU", "BAKIRKÖY", "SİLİVRİ", "BEŞİKTAŞ", "ÇATALCA", "ŞİLE", "ADALAR"].sort();
 const selectOfCitiesElement = document.getElementById("form-cities");
 
@@ -5,7 +6,7 @@ if (selectOfCitiesElement) {
     cities.forEach((c, i) => {
         const option = document.createElement("option");
         const trimmed = c.trim();
-        option.value = trimmed.toLowerCase();
+        option.value = trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
         option.innerText = trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
         selectOfCitiesElement.appendChild(option)
     })
@@ -104,24 +105,46 @@ formSubmitter.onclick = function (e) {
             classToggler()
         }
     } else {
-        asyncPostCall("https://script.google.com/macros/s/AKfycbwgfx44LQtyskNuv2sf9GJYmISNzWNJd1uw7GywWSTUd9dndPiME9NH3xSty6SjUFBr/exec", formData);
+        classToggler()
+        formSubmitFn().then(res => {
+            document.getElementById("modal-starter").click();
+        }).catch(e => {
+            classToggler()
+        })
     }
 }
 
-const asyncPostCall = async (url, reqData) => {
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(reqData)
-        });
-        const data = await response.json();
-        // enter you logic when the fetch is successful
-        console.log(data);
-    } catch (error) {
-        // enter your logic for when there is an error (ex. error toast)
-        console.log(error)
-    }
+
+const params = {
+    name: "Can",
+    surname: "Gökçeaslan",
+    city: "Beşiktaş",
+    telephone: "5444850586"
+};
+const formSubmitFn = async () => {
+    return fetch(url, {
+        "headers": {
+            "accept": " */*",
+            "accept-language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7,no;q=0.6",
+            "content-type": "application/x-www-form-urlencoded",
+            "sec-ch-ua": "\"Google Chrome\";v=\"93\", \" Not;A Brand\";v=\"99\", \"Chromium\";v=\"93\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "cross-site",
+        },
+        "referrer": "https://www.apirequest.io/",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": JSON.stringify(formData),
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "omit"
+    }).then(res => {
+        return res.text()
+    }).then((res) => {
+        return res;
+    }).catch(e => {
+        document.write(e)
+    });
 }
