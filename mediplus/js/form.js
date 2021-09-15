@@ -2,6 +2,29 @@ const url = "https://script.google.com/macros/s/AKfycbxsbPM7h58-7A0SnEJfaH1T9RWN
 const cities = ["ESENYURT", "KÜÇÜKÇEKMECE", "BAĞCILAR", "PENDİK", "ÜMRANİYE", "BAHÇELİEVLER", "SULTANGAZİ", "ÜSKÜDAR", "MALTEPE", "GAZİOSMANPAŞA", "KADIKÖY", "KARTAL", "BAŞAKŞEHİR", "SANCAKTEPE", "ESENLER", "KAĞITHANE", "AVCILAR", "ATAŞEHİR", "EYÜPSULTAN", "FATİH", "BEYLİKDÜZÜ", "SULTANBEYLİ", "SARIYER", "ARNAVUTKÖY", "ZEYTİNBURNU", "GÜNGÖREN", "ÇEKMEKÖY", "TUZLA", "BAYRAMPAŞA", "ŞİŞLİ", "BÜYÜKÇEKMECE", "BEYKOZ", "BEYOĞLU", "BAKIRKÖY", "SİLİVRİ", "BEŞİKTAŞ", "ÇATALCA", "ŞİLE", "ADALAR"].sort();
 const selectOfCitiesElement = document.getElementById("form-cities");
 
+function getOS() {
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
+
+    if (macosPlatforms.indexOf(platform) !== -1) {
+        os = 'macos';
+    } else if (iosPlatforms.indexOf(platform) !== -1) {
+        os = 'ios';
+    } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        os = 'windows';
+    } else if (/Android/.test(userAgent)) {
+        os = 'android';
+    } else if (!os && /Linux/.test(platform)) {
+        os = 'linux';
+    }
+
+    return os;
+}
+
 if (selectOfCitiesElement) {
     cities.forEach((c, i) => {
         const option = document.createElement("option");
@@ -30,7 +53,10 @@ const formData = {
     name: null,
     surname: null,
     city: null,
-    telephone: null
+    telephone: null,
+    createdAt: new Date(),
+    visitedAt: new Date(),
+    platform: getOS() || "unknown"
 }
 function classToggler() {
     formSubmitter.disabled = !formSubmitter.disabled;
@@ -88,6 +114,7 @@ formElements.forEach((e, i) => {
         e.onkeyup = onChange
     }
 })
+
 formSubmitter.onclick = function (e) {
     const boolArr = Object.keys(formData).map((e, i) => {
         if (formData[e] === null || formData[e].length < 3) {
@@ -106,25 +133,24 @@ formSubmitter.onclick = function (e) {
         }
     } else {
         classToggler()
+        formData.createdAt = new Date();
+        formSubmitter.innerText = "Gönderiliyor..."
         formSubmitFn().then(res => {
             if (res === false) {
                 document.getElementById("error-modal-starter").click()
                 classToggler()
+                formSubmitter.innerText = "Bilgileri Gönder"
                 return;
             }
             document.getElementById("modal-starter").click();
+            formSubmitter.innerText = "Başarıyla Gönderildi ✔"
+            formSubmitter.classList.add("success-submitter")
+            //document.getElementById("success-overlay").style.display = "block"
         })
     }
 }
 
 
-const params = {
-    name: "Can",
-    surname: "Gökçeaslan",
-    city: "Beşiktaş",
-    telephone: "5444850586",
-    createdAt: new Date()
-};
 const formSubmitFn = async () => {
     return fetch(url, {
         "headers": {

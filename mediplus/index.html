@@ -74,6 +74,27 @@
 		.btn-submitter:hover {
 			color: white
 		}
+
+		.success-submitter {
+			cursor: not-allowed;
+			background-color: #04D684 !important;
+			border: 1px solid #04D684 !important;
+			color: black !important;
+			font-family: 'Rubik', sans-serif;
+			letter-spacing: -0.05em;
+			opacity: 1 !important;
+		}
+
+		.success-overlay {
+			background-color: #04D684;
+			opacity: 1;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 100;
+		}
 	</style>
 </head>
 
@@ -103,7 +124,7 @@
 		</div>
 	</div>
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target"
-		id="ftco-navbar" style="background-color: white !important;height:70px">
+		id="ftco-navbar" style="background-color: white !important;height:70px;z-index: 9999;">
 		<div class="container">
 			<a class="navbar-brand" style="font-family: 'Rubik', sans-serif;letter-spacing: -0.05em;"
 				href="index.html">ExperCepte.com</a>
@@ -223,6 +244,15 @@
 					</div>
 				</div>
 				<div class="col-md-5 d-flex">
+					<div id="success-overlay"
+						class="success-overlay d-flex justify-content-center align-items-center flex-column"
+						style="display:none !important">
+						<img src="/icons/sucessblack.png" width="100px" height="100px" />
+						<div
+							style="margin-top: 30px;color:#0A2239;text-align: center; font-family: 'Rubik', sans-serif;letter-spacing: -0.05em;font-size: 20px;">
+							Bilgilerini
+							Başarıyla Gönderdin.<br />Ekiplerimiz sana en kısa zamanda ulaşacak</div>
+					</div>
 					<div class="appointment-wrap bg-white p-4 p-md-5 d-flex align-items-center">
 						<form class="appointment-form ftco-animate" action="javascript:void(0);" onsubmit="false">
 							<h3 id="form-header">Randevu Almak İçin Bize Ulaş</h3>
@@ -278,8 +308,13 @@
 										placeholder="Message"></textarea>
 								</div> -->
 								<div class="form-group" style="margin-top:50px">
-									<input id="form-submit" type="submit" value="Bilgileri Gönder"
-										class="btn btn-submitter disabled-submitter" disabled>
+									<button id="form-submit" type="submit"
+										class="btn btn-submitter disabled-submitter d-flex justify-content-center"
+										disabled>
+										<span style="margin-top: -6px;">Bilgileri Gönder</span>
+
+
+									</button>
 								</div>
 							</div>
 						</form>
