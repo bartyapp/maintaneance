@@ -3520,6 +3520,7 @@ input[type="button"].btn-block {
   .navbar-toggler:not(:disabled):not(.disabled) {
     cursor: pointer; }
 
+
 .navbar-toggler-icon {
   display: inline-block;
   width: 1.5em;
@@ -3533,7 +3534,10 @@ input[type="button"].btn-block {
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
-    padding-left: 0; } }
+    padding-left: 0; }
+  
+  
+  }
 
 @media (min-width: 576px) {
   .navbar-expand-sm {
