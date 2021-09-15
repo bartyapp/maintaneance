@@ -26,19 +26,17 @@ function dateGenerator() {
         "Kasım",
         "Aralık",
     ]
-    let str = addZeros(date.getDay())
-        + " "
-        + months[date.getMonth()]
-        + " "
+    let str = addZeros(date.getMonth())
+        + "/"
+        + addZeros(date.getDay())
+        + "/"
         + date.getFullYear()
-        + " - "
+        + " "
         + addZeros(date.getHours())
         + ":"
         + addZeros(date.getMinutes())
         + ":"
         + addZeros(date.getSeconds())
-        + "."
-        + addTwoZeros(date.getMilliseconds())
     return str;
 }
 $(document).on("keypress", 'form', function (e) {
