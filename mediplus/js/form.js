@@ -1,3 +1,10 @@
+$(document).on("keypress", 'form', function (e) {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+        e.preventDefault();
+        return false;
+    }
+});
 const url = "https://script.google.com/macros/s/AKfycbxsbPM7h58-7A0SnEJfaH1T9RWNQZbKgt4EMFZRB8yyHSFNDUosbR7w6lEkut6Yku9bpg/exec"
 const cities = ["ESENYURT", "KÜÇÜKÇEKMECE", "BAĞCILAR", "PENDİK", "ÜMRANİYE", "BAHÇELİEVLER", "SULTANGAZİ", "ÜSKÜDAR", "MALTEPE", "GAZİOSMANPAŞA", "KADIKÖY", "KARTAL", "BAŞAKŞEHİR", "SANCAKTEPE", "ESENLER", "KAĞITHANE", "AVCILAR", "ATAŞEHİR", "EYÜPSULTAN", "FATİH", "BEYLİKDÜZÜ", "SULTANBEYLİ", "SARIYER", "ARNAVUTKÖY", "ZEYTİNBURNU", "GÜNGÖREN", "ÇEKMEKÖY", "TUZLA", "BAYRAMPAŞA", "ŞİŞLİ", "BÜYÜKÇEKMECE", "BEYKOZ", "BEYOĞLU", "BAKIRKÖY", "SİLİVRİ", "BEŞİKTAŞ", "ÇATALCA", "ŞİLE", "ADALAR"].sort();
 const selectOfCitiesElement = document.getElementById("form-cities");
@@ -59,6 +66,7 @@ const formData = {
     platform: getOS() || "unknown"
 }
 function classToggler() {
+    console.log("Working")
     formSubmitter.disabled = !formSubmitter.disabled;
     if (formSubmitter.classList.contains("disabled-submitter")) {
         formSubmitter.classList.remove("disabled-submitter")
@@ -115,7 +123,7 @@ formElements.forEach((e, i) => {
     }
 })
 
-formSubmitter.onclick = function (e) {
+function submitFn() {
     const boolArr = Object.keys(formData).map((e, i) => {
         if (formData[e] === null || formData[e].length < 3) {
             return false
@@ -133,6 +141,7 @@ formSubmitter.onclick = function (e) {
         }
     } else {
         classToggler()
+        console.log("Worked");
         formData.createdAt = new Date();
         formSubmitter.innerText = "Gönderiliyor..."
         formSubmitFn().then(res => {
@@ -150,6 +159,13 @@ formSubmitter.onclick = function (e) {
     }
 }
 
+formSubmitter.onclick = function (e) {
+    submitFn()
+}
+
+/* document.getElementById("form").addEventListener("submit", (e) => {
+    e.preventDefault()
+}, false) */
 
 const formSubmitFn = async () => {
     return fetch(url, {

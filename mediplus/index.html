@@ -254,7 +254,8 @@
 							Başarıyla Gönderdin.<br />Ekiplerimiz sana en kısa zamanda ulaşacak</div>
 					</div>
 					<div class="appointment-wrap bg-white p-4 p-md-5 d-flex align-items-center">
-						<form class="appointment-form ftco-animate" action="javascript:void(0);" onsubmit="false">
+						<form class="appointment-form ftco-animate" id="form" onsubmit="return false;"
+							action="javascript:void(0)">
 							<h3 id="form-header">Randevu Almak İçin Bize Ulaş</h3>
 							<div class="">
 								<div class="form-group">
@@ -308,7 +309,7 @@
 										placeholder="Message"></textarea>
 								</div> -->
 								<div class="form-group" style="margin-top:50px">
-									<button id="form-submit" type="submit"
+									<button id="form-submit"
 										class="btn btn-submitter disabled-submitter d-flex justify-content-center"
 										disabled>
 										<span style="margin-top: -6px;">Bilgileri Gönder</span>
