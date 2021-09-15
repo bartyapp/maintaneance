@@ -457,10 +457,9 @@
 				<div class="modal-body"
 					style="margin:auto;justify-content:center;display: flex; flex-direction: column;">
 					<div style="flex:1;margin: auto;">
-						<img src="https://icons-for-free.com/iconfiles/png/512/complete+done+green+success+valid+icon-1320183462969251652.png"
-							width="120px" height="120px" />
+						<img src="/icons/success.png" width="120px" height="120px" />
 					</div>
-					<div style="flex:1;color:black;margin-top:20px;">
+					<div style="flex:1;color:black;margin-top:20px;text-align: center;">
 
 						Ekiplerimiz size en kısa sürede ulaşacaktır.
 					</div>
@@ -475,6 +474,44 @@
 		</div>
 	</div>
 	<!-- FORM SUBMIT MODAL ENDS -->
+
+	<!-- FORM ERROR MODAL -->
+	<button type="button" id="error-modal-starter" class="btn btn-primary" data-toggle="modal" style="display:none"
+		data-target="#exampleModalCenter1">
+		Launch Error Modal
+	</button>
+	<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle1"
+						style="font-family: 'Rubik', sans-serif;letter-spacing: -0.05em;text-align: center;width:100%;padding-left: 30px;">
+						Bilgileriniz Alınamadı</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body"
+					style="margin:auto;justify-content:center;display: flex; flex-direction: column;">
+					<div style="flex:1;margin: auto;">
+						<img src="/icons/error.png" width="120px" height="120px" />
+					</div>
+					<div style="flex:1;color:black;margin-top:20px;text-align: center;">
+
+						Sanırım formu doldururken bir hata yaptın, bu pencereyi kapatarak tekrardan doldurabilirsin
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn" data-dismiss="modal"
+						style="background-color: #0A2239;border-color: #0A2239 !important;color:white;font-family: 'Rubik', sans-serif;letter-spacing: -0.05em;">Pencereyi
+						Kapat</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- FORM ERROR MODAL ENDS -->
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>

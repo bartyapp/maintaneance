@@ -107,9 +107,12 @@ formSubmitter.onclick = function (e) {
     } else {
         classToggler()
         formSubmitFn().then(res => {
+            if (res === false) {
+                document.getElementById("error-modal-starter").click()
+                classToggler()
+                return;
+            }
             document.getElementById("modal-starter").click();
-        }).catch(e => {
-            classToggler()
         })
     }
 }
@@ -145,6 +148,6 @@ const formSubmitFn = async () => {
     }).then((res) => {
         return res;
     }).catch(e => {
-        document.write(e)
+        return false
     });
 }
