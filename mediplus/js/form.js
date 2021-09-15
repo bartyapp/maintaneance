@@ -1,3 +1,46 @@
+
+
+function dateGenerator() {
+    function addZeros(num) {
+        return (String(num).length === 1 ? ("0" + num) : num)
+    }
+    function addTwoZeros(num) {
+        return String(num).length === 1
+            ? ("00" + num)
+            : String(num).length === 2 ?
+                ("0" + num)
+                : num
+    }
+    const date = new Date()
+    const months = [
+        "Ocak",
+        "Şubat",
+        "Mart",
+        "Nisan",
+        "Mayıs",
+        "Haziran",
+        "Temmuz",
+        "Ağustos",
+        "Eylül",
+        "Ekim",
+        "Kasım",
+        "Aralık",
+    ]
+    let str = addZeros(date.getDay())
+        + " "
+        + months[date.getMonth()]
+        + " "
+        + date.getFullYear()
+        + " - "
+        + addZeros(date.getHours())
+        + ":"
+        + addZeros(date.getMinutes())
+        + ":"
+        + addZeros(date.getSeconds())
+        + "."
+        + addTwoZeros(date.getMilliseconds())
+    return str;
+}
 $(document).on("keypress", 'form', function (e) {
     var code = e.keyCode || e.which;
     if (code == 13) {
@@ -36,8 +79,8 @@ if (selectOfCitiesElement) {
     cities.forEach((c, i) => {
         const option = document.createElement("option");
         const trimmed = c.trim();
-        option.value = trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
-        option.innerText = trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+        option.value = trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLocaleLowerCase("tr-TR");
+        option.innerText = trimmed.charAt(0).toLocaleUpperCase("tr-TR") + trimmed.slice(1).toLocaleLowerCase("tr-TR");
         selectOfCitiesElement.appendChild(option)
     })
 }
@@ -61,8 +104,8 @@ const formData = {
     surname: null,
     city: null,
     telephone: null,
-    createdAt: new Date(),
-    visitedAt: new Date(),
+    createdAt: dateGenerator(),
+    visitedAt: dateGenerator(),
     platform: getOS() || "unknown"
 }
 function classToggler() {
@@ -142,8 +185,9 @@ function submitFn() {
     } else {
         classToggler()
         console.log("Worked");
-        formData.createdAt = new Date();
+        formData.createdAt = dateGenerator();
         formSubmitter.innerText = "Gönderiliyor..."
+        console.log(formData)
         formSubmitFn().then(res => {
             if (res === false) {
                 document.getElementById("error-modal-starter").click()
@@ -194,3 +238,4 @@ const formSubmitFn = async () => {
         return false
     });
 }
+
