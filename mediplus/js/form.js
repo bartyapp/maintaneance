@@ -104,6 +104,24 @@ formSubmitter.onclick = function (e) {
             classToggler()
         }
     } else {
-        alert(JSON.stringify(formData))
+        asyncPostCall("https://script.google.com/macros/s/AKfycbwgfx44LQtyskNuv2sf9GJYmISNzWNJd1uw7GywWSTUd9dndPiME9NH3xSty6SjUFBr/exec", formData);
+    }
+}
+
+const asyncPostCall = async (url, reqData) => {
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reqData)
+        });
+        const data = await response.json();
+        // enter you logic when the fetch is successful
+        console.log(data);
+    } catch (error) {
+        // enter your logic for when there is an error (ex. error toast)
+        console.log(error)
     }
 }
