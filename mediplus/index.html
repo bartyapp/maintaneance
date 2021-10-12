@@ -11,6 +11,19 @@
 
       gtag('config', 'G-0GLYJN10BR');
     </script>
+
+    <script type="text/javascript">
+        function initDesk360Chat() {
+            window.desk360Chat.init({
+                token: "gVP1GWtjITISn6bdqHNFnStz0MEVIziIUg9bhwKaR0V1JWJ5suPOW8TFdotNbB9uQemclFIcNQ4U6eku",
+                host: "https://barty.desk360.com/",
+                user: { name: "Müşteri - " + Date.now(), email: "xyz@gmail.com" }
+            });
+        }
+        function initialize(t,i){var e,a=btoa((new Date).toDateString()).toLowerCase();t.getElementById(i)?initDesk360Chat():((e=t.createElement("script")).id=i,e.async=!0,e.src="https://barty.desk360.com/widgets/chat/sdk.js?".concat(a),e.onload=initDesk360Chat,t.head.appendChild(e))}function initiateCall(){initialize(document,"desk360chat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+    </script>
+
+
     <title>Exper Cepte - İkinci El Cep Telefonu Ekspertizi</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -119,13 +132,8 @@
             <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
                 <div class="col-lg-12 d-block">
                     <div class="row d-flex">
-                        <div class="col-md pr-4 d-flex topper align-items-center">
-                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-                            <span class="text"><a href="tel:05516424483">+90 551 642 44 83</a></span>
-                        </div>
                         <div class="col-md pr-4 d-flex topper align-items-center text-lg-right justify-content-end">
-                            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-                            <span class="text"><a href="mailto: expercepte@gmail.com">expercepte@gmail.com</a></span>
+                            <span class="text">Bize Ulaşın: <a href="tel:05516424483">+90 551 642 44 83</a></span>
                         </div>
                     </div>
                 </div>
@@ -166,10 +174,9 @@
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
                     <div class="col-md-6 pt-5 ftco-animate">
                         <div class="mt-5">
-                            <span class="subheading" style="color:white">İkinci El</span>
                             <h1 class="mb-4" style="color:white">İkinci El <br>Cep Telefonu Ekspertizi</h1>
-                            <p class="mb-4" style="color: white;">ExperCepte ile 2. el cep telefonu alışverişlerini güvenle yap.</p>
-                            <p><a href="#" class="btn btn-primary py-3 px-4" style="background-color: #04D684;border-color: #04D684 !important;color:black !important">Şimdi Randevu Oluştur</a></p>
+                            <p class="mb-4" style="color: white;">Cep telefonu alışverişlerini ExperCepte raporu ile güvenle yap!</p>
+                            <p><a href="#content-section" class="btn btn-primary py-3 px-4" style="background-color: #04D684;border-color: #04D684 !important;color:black !important">Şimdi Randevu Oluştur</a></p>
                         </div>
                     </div>
                 </div>
