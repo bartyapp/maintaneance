@@ -387,24 +387,14 @@
                         <div class="col-md-12 heading-section text-center ftco-animate">
                             <h2 class="mb-4">Hizmet Bölgelerimiz</h2>
                             <h5>Şu an için sadece aşağıdaki bölgelerde hizmet vermekteyiz.</h5>
+                            <h5 style="font-size: 18px;">Kağıthane | Beşiktaş | Şişli | Beyoğlu | Fatih | Üsküdar | Kadıköy</h5>
                         </div>
                     </div>
                     <div class="row d-flex">
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <a href="https://goo.gl/maps/HDtQUf4Jrk1kpLjr5" target="_blank">
                                 <img src="images/maps2.png" width="100%" height="auto">
                             </a>
-                        </div>
-                        <div class="col-md-2">
-                            <ul class="list-unstyled">
-                                <li><span class="icon-long-arrow-right mr-2"></span>Kağıthane</li>
-                                <li><span class="icon-long-arrow-right mr-2"></span>Beşiktaş</li>
-                                <li><span class="icon-long-arrow-right mr-2"></span>Şişli</li>
-                                <li><span class="icon-long-arrow-right mr-2"></span>Beyoğlu</li>
-                                <li><span class="icon-long-arrow-right mr-2"></span>Fatih</li>
-                                <li><span class="icon-long-arrow-right mr-2"></span>Üsküdar</li>
-                                <li><span class="icon-long-arrow-right mr-2"></span>Kadıköy</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -625,7 +615,9 @@
 
     setTimeout(
         function() {
-            window.desk360Chat.open();
+            if ($(window).width() > 768) {
+                window.desk360Chat.open();
+            }
         }, 5000);
     </script>
 </body>
