@@ -103,7 +103,6 @@
             background-color: #04D684 !important;
             border: 1px solid #04D684 !important;
             color: black !important;
-            /* font-family: 'Rubik', sans-serif; */
             letter-spacing: -0.05em;
             opacity: 1 !important;
         }
@@ -123,14 +122,32 @@
             color: inherit;  blue colors for links too 
             text-decoration: inherit; /* no underline */
         }
+
+        video.hero-video {
+            object-fit: cover;
+              width: 100vw;
+              height: 100vh;
+              position: absolute;
+              overflow-x: hidden;
+              top: 0;
+              left: 0; 
+              z-index: -1;
+        }
+
         @media (max-width: 768px) {
             .report-image {
                 display: none;
             }    
+            video.hero-video.desktop {
+                display: none;
+            }
         }
-         
 
-
+        @media (min-width: 768px) {
+            video.hero-video.mobile {
+                display: none;
+            }   
+        }
     </style>
 </head>
 
@@ -152,7 +169,7 @@
         <div class="container">
             <a class="navbar-brand" href="index.html"> <embed src="https://reports.expercepte.com/static/media/logo1.09df9027.svg" style="width: auto; height: 25px;">
             </a>
-            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" style="margin-right: 10px;" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" id="navbar-toggler" type="button" data-toggle="collapse" style="margin-right: 10px;" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="oi oi-menu"></span> Menu
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="ftco-nav">
@@ -171,14 +188,11 @@
     </nav>
     <section class="hero-wrap js-fullheight" style="background: transparent;" data-section="home" id="home-section" data-stellar-background-ratio="0.5">
         <div style="z-index: 1;">
-            <video autoplay muted loop id="myVideo" style="object-fit: cover;
-              width: 100vw;
-              height: 100vh;
-              position: absolute;
-              overflow-x: hidden;
-              top: 0;
-              left: 0; z-index: -1;">
-                <source src="videos/03-compressed.mp4" type="video/mp4">
+            <video autoplay muted loop class="hero-video mobile">
+                <source src="videos/mainpage_mobile.mp4" type="video/mp4">
+            </video>
+            <video autoplay muted loop class="hero-video desktop">
+                <source src="videos/mainpage.mp4" type="video/mp4">
             </video>
         </div>
         <div class="container-fluid" style="z-index: 3 !important;background-color: rgba(0,0,0,.45);">
@@ -356,6 +370,11 @@
                             <img src="images/report_tablet.png" width="100%" height="auto">
                         </div>
                     </div>
+                    <div class="row d-flex justify-content-center">
+                        <a href="https://reports.expercepte.com/view/6168414f8667a10758ddb006" target="_blank" class="btn btn-submitter disabled-submitter d-flex justify-content-center align-items-center" style="background-color: #fe5f55 !important; width: 80%;">
+                            Rapor Örneği Görüntüle
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -401,13 +420,6 @@
                             <h2 class="mb-4">Rapor Sorgula</h2>
                         </div>
                     </div>
-                    <script type="text/javascript">
-                    function reportForm(event) {
-
-                        event.preventDefault();
-                        window.location.href = "https://reports.expercepte.com/view/" + event.target.reportId.value;
-                    }
-                    </script>
                     <div class="col-md-12 d-flex">
                         <div class="appointment-wrap p-4 p-md-5 d-flex align-items-center">
                             <form class="appointment-form ftco-animate" id="form" onsubmit="reportForm(event)">
@@ -600,6 +612,17 @@
     <script src="js/scrollax.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/form.js"></script>
+    <script type="text/javascript">
+    function reportForm(event) {
+
+        event.preventDefault();
+        window.location.href = "https://reports.expercepte.com/view/" + event.target.reportId.value;
+    };
+
+    $(".nav-link").click(function() {
+        $(".navbar-toggler").click();
+    });
+    </script>
 </body>
 
 </html>
