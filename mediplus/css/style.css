@@ -4367,6 +4367,7 @@ input[type="button"].btn-block {
   align-items: flex-start; }
 
 .media-body {
+  padding-left: 1em;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1; }
@@ -9025,7 +9026,9 @@ textarea.form-control {
 .testimony-wrap {
   display: block;
   position: relative;
-  color: rgba(255, 255, 255, 0.7); }
+  border-radius: 25px; 
+  border: 2px solid white; /*#04D684*/
+  color: rgba(255, 255, 255, 1); }
   .testimony-wrap .user-img {
     width: 130px;
     height: 130px;
@@ -9047,6 +9050,7 @@ textarea.form-control {
       .testimony-wrap .user-img .quote i {
         color: #fff; }
   .testimony-wrap .text {
+    font-size: 18px;
     padding-top: 6em;
     margin-top: -65px;
     -webkit-border-radius: 4px;
@@ -9054,7 +9058,7 @@ textarea.form-control {
     -ms-border-radius: 4px;
     border-radius: 4px; }
   .testimony-wrap .name {
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 0;
     color: #fff; }
   .testimony-wrap .position {
