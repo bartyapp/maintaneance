@@ -47,7 +47,8 @@ $(document).on("keypress", 'form', function (e) {
     }
 });
 const url = "https://script.google.com/macros/s/AKfycbxsbPM7h58-7A0SnEJfaH1T9RWNQZbKgt4EMFZRB8yyHSFNDUosbR7w6lEkut6Yku9bpg/exec"
-const cities = ["ESENYURT", "KÜÇÜKÇEKMECE", "BAĞCILAR", "PENDİK", "ÜMRANİYE", "BAHÇELİEVLER", "SULTANGAZİ", "ÜSKÜDAR", "MALTEPE", "GAZİOSMANPAŞA", "KADIKÖY", "KARTAL", "BAŞAKŞEHİR", "SANCAKTEPE", "ESENLER", "KAĞITHANE", "AVCILAR", "ATAŞEHİR", "EYÜPSULTAN", "FATİH", "BEYLİKDÜZÜ", "SULTANBEYLİ", "SARIYER", "ARNAVUTKÖY", "ZEYTİNBURNU", "GÜNGÖREN", "ÇEKMEKÖY", "TUZLA", "BAYRAMPAŞA", "ŞİŞLİ", "BÜYÜKÇEKMECE", "BEYKOZ", "BEYOĞLU", "BAKIRKÖY", "SİLİVRİ", "BEŞİKTAŞ", "ÇATALCA", "ŞİLE", "ADALAR"].sort();
+const citiesOld = ["ESENYURT", "KÜÇÜKÇEKMECE", "BAĞCILAR", "PENDİK", "ÜMRANİYE", "BAHÇELİEVLER", "SULTANGAZİ", "ÜSKÜDAR", "MALTEPE", "GAZİOSMANPAŞA", "KADIKÖY", "KARTAL", "BAŞAKŞEHİR", "SANCAKTEPE", "ESENLER", "KAĞITHANE", "AVCILAR", "ATAŞEHİR", "EYÜPSULTAN", "FATİH", "BEYLİKDÜZÜ", "SULTANBEYLİ", "SARIYER", "ARNAVUTKÖY", "ZEYTİNBURNU", "GÜNGÖREN", "ÇEKMEKÖY", "TUZLA", "BAYRAMPAŞA", "ŞİŞLİ", "BÜYÜKÇEKMECE", "BEYKOZ", "BEYOĞLU", "BAKIRKÖY", "SİLİVRİ", "BEŞİKTAŞ", "ÇATALCA", "ŞİLE", "ADALAR"].sort();
+const cities = ["Kağıthane", "Beşiktaş", "Şişli", "Beyoğlu", "Fatih", "Üsküdar", "Kadıköy"].sort();
 const selectOfCitiesElement = document.getElementById("form-cities");
 
 function getOS() {
