@@ -80,11 +80,13 @@
 
 const backgroundVideoElement = document.getElementById("bVideo");
 function resizeBackgroundVideo() {
-    console.log("Its working")
     if (window.innerWidth > window.innerHeight) {
-        backgroundVideoElement.style.width = '100% !important'
+        console.log("Its working")
+        backgroundVideoElement.style.width = '100vw'
+        backgroundVideoElement.style.height = 'auto'
     } else if (window.innerWidth < window.innerHeight) {
-        backgroundVideoElement.style.height = '100% !important'
+        backgroundVideoElement.style.height = '100vh'
+        backgroundVideoElement.style.width = 'auto'
     }
 }
 resizeBackgroundVideo();
