@@ -606,7 +606,8 @@
     function reportForm(event) {
 
         event.preventDefault();
-        window.location.href = "https://www.expercepte.com/rapor/" + event.target.reportId.value;
+        var reportId = event.target.reportId.value.replace('EC-','');
+        window.location.href = "https://www.expercepte.com/rapor/" + reportId;
     };
 
     $(".nav-link").click(function() {
