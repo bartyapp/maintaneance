@@ -26,9 +26,9 @@ function dateGenerator() {
         "Kasım",
         "Aralık",
     ]
-    let str = addZeros(date.getMonth())
+    let str = addZeros(date.getMonth() + 1)
         + "/"
-        + addZeros(date.getDay())
+        + addZeros(date.getDate())
         + "/"
         + date.getFullYear()
         + " "
