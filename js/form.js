@@ -203,12 +203,9 @@ function submitFn() {
 }
 
 formSubmitter.onclick = function (e) {
-    submitFn()
+    submitFn();
+    gtag_report_conversion('https://www.expercepte.com/');
 }
-
-/* document.getElementById("form").addEventListener("submit", (e) => {
-    e.preventDefault()
-}, false) */
 
 const formSubmitFn = async () => {
     return fetch(url, {
